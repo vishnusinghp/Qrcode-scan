@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <link rel="canonical" href=""/>
+      <title>QR Code Scanner - Scan your QR Codes</title>
+      <link rel="stylesheet" type="text/css" href="css/all-944fcbeb2b.min.css" />
+      <link rel="shortcut icon" href="favicon.ico" />
+      <script>document.docReady=function(f) { if(document.readyState === 'complete') f(); else document.addEventListener('DOMContentLoaded', f); }</script>
+      <script src="js/all-59b65c8594.min.js" defer></script>
+      <style>.site-header, .constrain, .content-width { min-width: 700px; max-width: 950px; }</style>
+      <script type="text/javascript" src="js/instascan.min.js"></script>
+      <script src="js/scan-d83e092ab6.min.js"></script>
+   </head>
+
+   <body class="">
+      <div class="constrain constrain-scan top">
+         <div class="qrcodescan">
+            <h1>QR Scanner - Simply point the camera to the desired QR Code</h1>
+            <div class="preview-wrap loading">
+               <video playsinline></video>
+            </div>
+            <div class="result">
+            </div>
+            <script class="result-template" type="x-tmpl-mustache">
+               <div>
+                 <h2>Scan Result</h2>
+                 <div class="result-content{{#scan.displayMultiline}} multiline{{/scan.displayMultiline}}">
+                   {{#scan.isLink}}{{scan.linkIntro}} <a href="{{scan.link}}" target="_blank">{{&scan.html}}</a>{{/scan.isLink}}
+                   {{^scan.isLink}}{{&scan.html}}{{/scan.isLink}}
+                 </div>
+                 <form class="ng"><button class="scan-button button">Scan Another QR Code</button></form>
+               </div>
+               
+            </script>
+         </div>
+      </div>
+      <footer class="site-footer content-width" style="margin: auto;">
+      <!-- begin: scan-footer.tpl -->
+      <!-- QR Stuff - Scan - Footer -->
+      
+      <!-- end: scan-footer.tpl -->
+      
+      
+      <script id="dialog-template" type="x-tmpl-mustache">
+         <div class="dialog-contain"{{#dialogId}} id="{{dialogId}}"{{/dialogId}}>
+           <div class="dialog-box-mask dialog-close"></div>
+           <div class="dialog-wrapper">
+             <div class="dialog-box">
+               {{#topClose}}<div class="close dialog-close"><img src="https://cdn.qrstuff.com/images/icons/g-close.png" width="16" height="16" alt="Close"/></div>{{/topClose}}
+               
+               {{#url}}<iframe src="{{url}}" style="{{#width}}width: {{width}}px; {{/width}}{{#height}}height: {{height}}px; {{/height}}"></iframe>{{/url}}
+               {{#message}}<div class="inner-text"><p>{{message}}</p></div>{{/message}}
+               {{#messageHtml}}<div class="inner-text">{{&messageHtml}}</div>{{/messageHtml}}
+               {{#offerSubscribe}}
+               <div class="actions">
+                 <a href="index.html" class="btn secondary no-btn dialog-close">No Thanks</a>
+                 <a href="newaccount#signup" class="btn primary yes-btn">Yep, Sign Me Up</a>
+                 <a href="newaccount" class="btn more-info-btn">More Info</a>
+               </div>
+               {{/offerSubscribe}}
+               {{#footerClose}}<div class="button dialog-close">Close</div>{{/footerClose}}
+               {{#closeButtonText}}
+                 <div class="actions centered">
+                   <a href="#" class="btn primary no-btn dialog-close">{{closeButtonText}}</a>
+                 </div>
+               {{/closeButtonText}}
+               {{#buttons.length}}
+                 <div class="actions">
+                   {{#buttons}}<div class="btn custom {{class}}" data-id="{{id}}">{{text}}</div>{{/buttons}}
+                 </div>
+               {{/buttons.length}}
+               </div>
+               
+             </div>
+           </div>
+         </div>
+      </script>
+   </body>
+</html>
